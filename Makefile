@@ -28,7 +28,7 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)%.s
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ)	main.c	libasm.h
 	ar rcs $(NAME) $(OBJ)
 	$(CC) $(CFLAGS) main.c $(OBJ) $(LIB) -o $(BIN_NAME)
 

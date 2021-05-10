@@ -9,17 +9,7 @@ _loop:
 	inc rcx
 	mov al, byte [rsi + rcx]
 	mov [rdi + rcx], al
-	
-	
-	;cmp rcx, 6
-	;jne _loop
+	cmp byte [rdi + rcx], 0
+	jne _loop
+	mov rax, rdi
 	ret
-	; mov al, byte [r8 + rcx]
-	; mov byte [rax + rcx], al
-	; inc rcx
-	; cmp rcx, 4
-	; jne _loop
-	; ret
-	;inc r8
-	;mov al, byte [rsi]
-	;mov byte [rax + rcx], al
