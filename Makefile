@@ -15,9 +15,9 @@ SRC		= $(SRC_DIR)ft_strlen.s	$(SRC_DIR)ft_strcpy.s	$(SRC_DIR)ft_strcmp.s \
 
 OBJ		= $(patsubst $(SRC_DIR)%.s, $(OBJ_DIR)%.o, $(SRC))
 
-# NFLAGS	= -fmacho64 # macOS
+NFLAGS	= -fmacho64 # macOS
 
-NFLAGS	= -felf64 # ubuntu
+# NFLAGS	= -felf64 # ubuntu
 
 CFLAGS	= -Wall -Wextra -Werror
 
@@ -34,8 +34,9 @@ $(OBJ_DIR):
 $(NAME):	$(OBJ)	main.c	libasm.h
 	ar rcs $(NAME) $(OBJ)
 
-test:	main.c	libasm.h	all
-	$(CC) $(CFLAGS) main.c $(LIB) -o $(BIN_NAME)
+test:	all	main.c	libasm.h
+	$(CC) $(CFLAGS) -c main.c -o $(OBJ_DIR)main.o
+	$(CC) $(CFLAGS) $(OBJ_DIR)main.o $(LIB) -o $(BIN_NAME)
 
 clean:
 	rm -rf $(OBJ_DIR)

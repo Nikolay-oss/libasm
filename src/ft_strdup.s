@@ -1,23 +1,24 @@
-; global _ft_strdup
-global ft_strdup
+global _ft_strdup
 
-extern malloc
-extern ft_strlen
-extern ft_strcpy
+extern _malloc
+extern _ft_strlen
+extern _ft_strcpy
+extern ___error
 
 section .text
 
-; _ft_strdup:
-ft_strdup:
+_ft_strdup:
 	push rdi
-	; call _ft_strlen
-	call ft_strlen
+	call _ft_strlen
 	mov rdi, rax
 	inc rdi
-	; call _malloc
-	call malloc wrt ..plt
+	call _malloc
+	jz _reterror
 	pop rsi
 	mov rdi, rax
-	; call _ft_strcpy
-	call ft_strcpy
+	call _ft_strcpy
+	ret
+
+_reterror:
+	pop rdi
 	ret

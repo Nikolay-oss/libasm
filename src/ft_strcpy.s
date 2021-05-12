@@ -1,11 +1,9 @@
 ; ubuntu with _ and macOS without _
-; global _ft_strcpy
-global ft_strcpy
+global _ft_strcpy
 
 section .text
 
-; _ft_strcpy:
-ft_strcpy:
+_ft_strcpy:
 	mov rcx, -1
 
 _loop:
