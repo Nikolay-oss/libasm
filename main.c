@@ -15,5 +15,8 @@ int	main(void)
 	// printf("ft_read -> %ld\n", ft_read(0, dst, 3));
 	// dst[3] = '\0';
 	// printf(" <size> -> |%ld|", ft_write(1, dst, 4));
+	char *str = ft_strdup("School21");
+	printf("%s\n", str);
+	free(str);
 	return (0);
 }

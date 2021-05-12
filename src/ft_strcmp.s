@@ -1,8 +1,10 @@
-global _ft_strcmp
+; global _ft_strcmp
+global ft_strcmp
 
 section .text
 
-_ft_strcmp:
+; _ft_strcmp:
+ft_strcmp:
 	mov rcx, -1
 	xor rdx, rdx
 	xor rax, rax
